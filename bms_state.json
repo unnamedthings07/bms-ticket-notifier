@@ -2,77 +2,12 @@
   "version": 2,
   "movies": {
     "ET00378770": {
-      "shows": {
-        "MRGB|1764|20260827|PLATINUM": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "10:30 AM",
-          "date": "20260827",
-          "cat": "PLATINUM",
-          "price": "250.00",
-          "status": "0"
-        },
-        "MRGB|1764|20260827|GOLD": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "10:30 AM",
-          "date": "20260827",
-          "cat": "GOLD",
-          "price": "200.00",
-          "status": "2"
-        },
-        "MRGB|1765|20260827|PLATINUM": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "02:15 PM",
-          "date": "20260827",
-          "cat": "PLATINUM",
-          "price": "250.00",
-          "status": "0"
-        },
-        "MRGB|1765|20260827|GOLD": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "02:15 PM",
-          "date": "20260827",
-          "cat": "GOLD",
-          "price": "200.00",
-          "status": "2"
-        },
-        "MRGB|1766|20260827|PLATINUM": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "06:00 PM",
-          "date": "20260827",
-          "cat": "PLATINUM",
-          "price": "250.00",
-          "status": "0"
-        },
-        "MRGB|1766|20260827|GOLD": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "06:00 PM",
-          "date": "20260827",
-          "cat": "GOLD",
-          "price": "200.00",
-          "status": "2"
-        },
-        "MRGB|1767|20260827|PLATINUM": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "10:00 PM",
-          "date": "20260827",
-          "cat": "PLATINUM",
-          "price": "250.00",
-          "status": "0"
-        },
-        "MRGB|1767|20260827|GOLD": {
-          "venue": "Manasa RGB Laser ATMOS: Konanakunte",
-          "time": "10:00 PM",
-          "date": "20260827",
-          "cat": "GOLD",
-          "price": "200.00",
-          "status": "2"
-        }
-      },
+      "shows": {},
       "dates": {
         "20260826": "AVAILABLE",
-        "20260827": "BOOKABLE",
+        "20260827": "AVAILABLE",
         "20260828": "AVAILABLE",
-        "20260829": "AVAILABLE",
+        "20260829": "BOOKABLE",
         "20260830": "AVAILABLE",
         "20260831": "AVAILABLE",
         "20260901": "AVAILABLE",
