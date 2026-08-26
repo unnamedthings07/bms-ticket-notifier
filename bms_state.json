@@ -9,7 +9,7 @@
           "date": "20260827",
           "cat": "PLATINUM",
           "price": "250.00",
-          "status": "1"
+          "status": "0"
         },
         "MRGB|1764|20260827|GOLD": {
           "venue": "Manasa RGB Laser ATMOS: Konanakunte",
@@ -17,7 +17,7 @@
           "date": "20260827",
           "cat": "GOLD",
           "price": "200.00",
-          "status": "3"
+          "status": "2"
         },
         "MRGB|1765|20260827|PLATINUM": {
           "venue": "Manasa RGB Laser ATMOS: Konanakunte",
