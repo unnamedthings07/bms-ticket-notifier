@@ -1,9 +1,8 @@
 """Format-filter wrapper for the BMS ticket checker.
 
-Also provides robust Bengaluru theatre discovery for theatre mode. BookMyShow's
-public cinema directory can return HTTP 403 from GitHub Actions, so theatre
-mode first tries the direct cinema URL and then uses a search-engine fallback
-to resolve the requested theatre page. No theatre is hardcoded.
+Provides Bengaluru theatre discovery for theatre mode without hardcoding a
+specific theatre. The wrapper accepts the same two-argument signature used by
+main.py: (region_slug, theatre_filter).
 
 Supported BMS_FORMAT values:
   imax
@@ -67,14 +66,18 @@ def extract_bms_cinema_url(text: str):
     ]
     for pattern in patterns:
         for match in re.findall(pattern, text, re.I):
-            url = match.rstrip(".,);\]")
+            url = match.rstrip(".,);]")
             if "/cinemas/" in url.lower() and "/buytickets/" in url.lower():
                 return url
     return None
 
 
 def parse_cinema_url(url: str, name: str = ""):
-    match = re.search(r"/cinemas/([^/]+)/([^/]+)/buytickets/([A-Za-z0-9]+)(?:/\d{8})?", url, re.I)
+    match = re.search(
+        r"/cinemas/([^/]+)/([^/]+)/buytickets/([A-Za-z0-9]+)(?:/\d{8})?",
+        url,
+        re.I,
+    )
     if not match:
         return None
     city, venue_slug, venue_code = match.groups()
@@ -112,14 +115,19 @@ def search_engine_candidate(theatre: str):
         try:
             resp = requests.get(
                 engine_url,
-                headers={"User-Agent": HEADERS["User-Agent"], "Accept-Language": "en-US,en;q=0.9"},
+                headers={
+                    "User-Agent": HEADERS["User-Agent"],
+                    "Accept-Language": "en-US,en;q=0.9",
+                },
                 timeout=15,
             )
         except requests.RequestException:
             continue
         if resp.status_code != 200:
             continue
-        url = extract_bms_cinema_url(resp.text) or extract_bms_cinema_url(unescape(resp.text))
+        url = extract_bms_cinema_url(resp.text) or extract_bms_cinema_url(
+            unescape(resp.text)
+        )
         if url:
             info = parse_cinema_url(url, theatre)
             if info:
@@ -127,10 +135,21 @@ def search_engine_candidate(theatre: str):
     return None
 
 
-def discover_bengaluru_theatre(theatre_filter: str):
-    target = theatre_filter.strip()
+def discover_bengaluru_theatre(region_slug: str, theatre_filter: str):
+    """Resolve any requested Bengaluru theatre using the main.py signature."""
+    target = (theatre_filter or "").strip()
+    if not target:
+        return None
+
+    # region_slug is intentionally accepted for compatibility with main.py.
+    # This wrapper is enabled only for Bengaluru/Bangalore.
     candidates = [slugify(target)]
-    stripped = re.sub(r"^(pvr|inox|cinepolis|miraj|amb cinemas)\s*[:\-]?\s*", "", target, flags=re.I)
+    stripped = re.sub(
+        r"^(pvr|inox|cinepolis|miraj|amb cinemas)\s*[:\-]?\s*",
+        "",
+        target,
+        flags=re.I,
+    )
     stripped_slug = slugify(stripped)
     if stripped_slug and stripped_slug not in candidates:
         candidates.append(stripped_slug)
@@ -144,7 +163,11 @@ def discover_bengaluru_theatre(theatre_filter: str):
     return search_engine_candidate(target)
 
 
-if os.getenv("BMS_MODE", "movie").strip().lower() in ("theatre", "cinema") and os.getenv("BMS_REGION", "bengaluru").strip().lower() in ("bengaluru", "bangalore"):
+if (
+    os.getenv("BMS_MODE", "movie").strip().lower() in ("theatre", "cinema")
+    and os.getenv("BMS_REGION", "bengaluru").strip().lower()
+    in ("bengaluru", "bangalore")
+):
     checker.discover_theatre_page = discover_bengaluru_theatre
 
 
@@ -162,7 +185,11 @@ def filter_shows(shows, theatre_filter, time_periods, date_codes):
     matches = []
     for show in filtered:
         attr = (show.screen_attr or "").strip().lower()
-        if any(alias in attr for fmt in requested_formats for alias in SUPPORTED_FORMATS[fmt]):
+        if any(
+            alias in attr
+            for fmt in requested_formats
+            for alias in SUPPORTED_FORMATS[fmt]
+        ):
             matches.append(show)
     return matches
 
