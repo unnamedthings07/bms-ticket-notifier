@@ -59,7 +59,7 @@ def slugify(value: str) -> str:
 
 
 def extract_bms_cinema_url(text: str):
-    """Extract a BMS cinema URL in either canonical form."""
+    """Extract a BMS cinema URL from search-result HTML or text."""
     text = unescape(text)
     text = unquote_plus(text)
     text = text.replace("\\u002F", "/").replace("\\/", "/")
@@ -76,7 +76,15 @@ def extract_bms_cinema_url(text: str):
 
 
 def parse_cinema_url(url: str, name: str = ""):
-    """Parse both BMS cinema URL variants and return a canonical URL."""
+    """Parse a BMS cinema URL and return its venue code.
+
+    Supported forms:
+      /cinemas/<city>/<venue>/buytickets/<CODE>/<date>
+      /cinemas/<city>/<venue>/<CODE>/<date>
+
+    The second pattern explicitly excludes the literal ``buytickets`` so a
+    page URL ending in ``/buytickets/`` can never be mistaken for a venue code.
+    """
     if not url:
         return None
 
@@ -89,7 +97,7 @@ def parse_cinema_url(url: str, name: str = ""):
         city, venue_slug, venue_code = match.groups()
     else:
         match = re.search(
-            r"/cinemas/([^/]+)/([^/]+)/([A-Za-z0-9]{3,})(?:/\d{8})?(?:[/?#]|$)",
+            r"/cinemas/([^/]+)/([^/]+)/((?!buytickets(?:/|$))[A-Za-z0-9]{3,})(?:/\d{8})?(?:[/?#]|$)",
             url,
             re.I,
         )
@@ -126,6 +134,8 @@ def fetch_direct_candidate(slug: str):
         except requests.RequestException:
             continue
 
+        # Only accept a URL when it actually contains a venue code. In
+        # particular, do not treat /buytickets/ as the code "BUYTICKETS".
         info = parse_cinema_url(resp.url)
         if info:
             return info
