@@ -1,13 +1,9 @@
-"""Entry point for the BMS ticket checker.
+"""Theatre-specific BMS monitoring wrapper.
 
-Theatre mode is driven by a canonical BookMyShow cinema URL. In theatre mode,
-put the full cinema URL in BMS_URL (or BMS_THEATRE_URL), for example:
-https://in.bookmyshow.com/cinemas/bengaluru/pvr-nexus-formerly-forum-koramangala/buytickets/PVFF/20260903
-
-The URL supplies the exact venue code and date. Movie/event codes are discovered
-from the cinema page through a text-rendering fallback because GitHub Actions may
-receive HTTP 403 from the direct BMS HTML page. Ticket availability is then read
-from BookMyShow's showtime API.
+Theatre mode is driven by one canonical BookMyShow cinema URL. The URL supplies
+venue code/date, movie event codes are discovered from the cinema page, and
+showtime data is checked through BMS's showtime API. All movie-level results are
+aggregated so theatre mode sends at most ONE email per workflow run.
 """
 
 import os
@@ -47,7 +43,7 @@ def parse_cinema_url(url: str):
         "venue_slug": slug,
         "name": slug.replace("-", " ").title(),
         "date_code": date_code or "",
-        "region_slug": city,
+        "region_slug": city.lower(),
     }
 
 
@@ -76,14 +72,9 @@ def _extract_event_codes(text: str) -> list[str]:
 
 
 def _fetch_event_codes_via_renderer(url: str) -> list[str]:
-    """Fetch a BMS page through a text renderer when GitHub gets BMS HTTP 403."""
     renderer_url = "https://r.jina.ai/" + url
     try:
-        response = requests.get(
-            renderer_url,
-            headers={"User-Agent": "Mozilla/5.0"},
-            timeout=30,
-        )
+        response = requests.get(renderer_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         if response.status_code == 200:
             return _extract_event_codes(response.text)
         print(f"  ⚠️ Renderer HTTP {response.status_code}: {renderer_url}")
@@ -92,6 +83,7 @@ def _fetch_event_codes_via_renderer(url: str) -> list[str]:
     return []
 
 
+# ---------------- Theatre mode ------------------------------------------------
 if checker.CONFIG["mode"] in ("theatre", "cinema"):
     configured_url = (
         os.getenv("BMS_URL", "").strip()
@@ -101,10 +93,8 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
     cinema = parse_cinema_url(configured_url)
 
     if cinema:
-        # The cinema URL itself is authoritative. In particular, a Bengaluru
-        # cinema URL must always use the existing Bengaluru BMS API configuration
-        # even when BMS_REGION was left blank in GitHub Actions variables.
-        if cinema["region_slug"].lower() in ("bengaluru", "bangalore"):
+        # The full URL is authoritative for theatre + date + Bengaluru region.
+        if cinema["region_slug"] in ("bengaluru", "bangalore"):
             checker.CONFIG["region"] = "bengaluru"
         elif not checker.CONFIG["region"]:
             checker.CONFIG["region"] = cinema["region_slug"]
@@ -112,7 +102,9 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
         if not checker.CONFIG["dates"] and cinema["date_code"]:
             checker.CONFIG["dates"] = cinema["date_code"]
 
+        # In theatre mode the movie name is irrelevant; URL venue code is exact.
         checker.CONFIG["theatre"] = cinema["name"]
+        checker.CONFIG["movie"] = "ANY"
 
         def discover_theatre_from_url(region_slug, theatre_filter):
             print(f"  🔗 Using BMS cinema URL directly: {configured_url}")
@@ -124,7 +116,6 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
             full_url = theatre_base_url.rstrip("/")
             if date_code:
                 full_url += f"/{date_code}"
-
             print(f"  🔎 Discovering movies from the cinema page for {date_code}")
             codes = _fetch_event_codes_via_renderer(full_url)
             if codes:
@@ -153,6 +144,80 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
 
         checker.filter_shows = filter_shows_by_url
 
+        # ---------------------------------------------------------------
+        # Theatre mode is ONE search / ONE notification.
+        # run_movie() normally sends immediately per movie. Replace that
+        # sender with a collector, then send one aggregated message after
+        # the complete theatre scan finishes.
+        # ---------------------------------------------------------------
+        original_send_email = checker.send_email
+        theatre_notifications = []
+
+        def collect_email(subject, changes, shows, movie_info):
+            theatre_notifications.append(
+                {
+                    "changes": list(changes),
+                    "shows": list(shows),
+                    "movie": movie_info.get("name", "Unknown Movie"),
+                }
+            )
+
+        checker.send_email = collect_email
+
+        def theatre_main_once():
+            old_state = checker.load_state()
+            old_movies = old_state.get("movies", {}) if isinstance(old_state, dict) else {}
+
+            new_movies, any_ok = checker.main_theatre_mode(old_movies)
+
+            if not any_ok:
+                print("\n  ❌ No usable movie/showtime data was produced.")
+                return
+
+            checker.save_state({"version": 3, "movies": new_movies})
+
+            # Flatten all movie-level changes into ONE theatre notification.
+            all_changes = []
+            all_shows = []
+            seen_change = set()
+            seen_show = set()
+            for item in theatre_notifications:
+                for change in item["changes"]:
+                    if change not in seen_change:
+                        seen_change.add(change)
+                        all_changes.append(change)
+                for show in item["shows"]:
+                    key = (
+                        show.venue_code,
+                        show.session_id,
+                        show.date_code,
+                        show.time_code,
+                        tuple((c.name, c.price, c.status) for c in show.categories),
+                    )
+                    if key not in seen_show:
+                        seen_show.add(key)
+                        all_shows.append(show)
+
+            if all_changes:
+                theatre_name = cinema["name"]
+                date_text = ", ".join(checker.CONFIG["dates"].split(",")) if checker.CONFIG["dates"] else "requested date"
+                subject = f"BMS Alert: {theatre_name} — {len(all_changes)} change(s)"
+                movie_info = {
+                    "name": f"{theatre_name} — {date_text}",
+                    "language": "",
+                }
+                print(f"\n  📧 Sending ONE aggregated theatre email ({len(all_changes)} change(s))")
+                original_send_email(subject, all_changes, all_shows, movie_info)
+            else:
+                print("\n  ✅ No theatre changes — no email sent.")
+
+            print(f"\n✅ Done. Checked {len(new_movies)} movie(s) within one theatre search.")
+
+        checker.main = theatre_main_once
+
+
+# Optional format filter for theatre mode. It applies to the already-selected
+# theatre shows and still results in only one aggregated email.
 requested_formats = normalize_formats(os.getenv("BMS_FORMAT", "").strip())
 if requested_formats:
     previous_filter = checker.filter_shows
