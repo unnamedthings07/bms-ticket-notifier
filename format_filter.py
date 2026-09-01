@@ -59,15 +59,7 @@ def slugify(value: str) -> str:
 
 
 def extract_bms_cinema_url(text: str):
-    """Extract a BMS cinema URL in either canonical form.
-
-    BMS commonly exposes both:
-      /cinemas/bengaluru/<slug>/<VENUE_CODE>
-      /cinemas/bengaluru/<slug>/buytickets/<VENUE_CODE>/<DATE>
-
-    Search-engine results frequently return the first form, while direct
-    theatre pages use the second form. Both are accepted here.
-    """
+    """Extract a BMS cinema URL in either canonical form."""
     text = unescape(text)
     text = unquote_plus(text)
     text = text.replace("\\u002F", "/").replace("\\/", "/")
@@ -88,7 +80,6 @@ def parse_cinema_url(url: str, name: str = ""):
     if not url:
         return None
 
-    # Canonical URL: /cinemas/<city>/<venue-slug>/buytickets/<code>/<date?>
     match = re.search(
         r"/cinemas/([^/]+)/([^/]+)/buytickets/([A-Za-z0-9]+)(?:/\d{8})?(?:[/?#]|$)",
         url,
@@ -97,7 +88,6 @@ def parse_cinema_url(url: str, name: str = ""):
     if match:
         city, venue_slug, venue_code = match.groups()
     else:
-        # Short/indexed URL: /cinemas/<city>/<venue-slug>/<code>/<date?>
         match = re.search(
             r"/cinemas/([^/]+)/([^/]+)/([A-Za-z0-9]{3,})(?:/\d{8})?(?:[/?#]|$)",
             url,
@@ -116,30 +106,43 @@ def parse_cinema_url(url: str, name: str = ""):
 
 
 def fetch_direct_candidate(slug: str):
+    """Try both BMS URL layouts for a directly derived Bengaluru slug."""
     if not slug:
         return None
-    url = f"https://in.bookmyshow.com/cinemas/bengaluru/{slug}/buytickets/"
-    try:
-        resp = requests.get(url, headers=HEADERS, timeout=20, allow_redirects=True)
-    except requests.RequestException:
-        return None
-    if resp.status_code != 200:
-        return None
-    info = parse_cinema_url(resp.url)
-    if info:
-        return info
-    found = extract_bms_cinema_url(resp.text)
-    return parse_cinema_url(found) if found else None
+
+    urls = (
+        f"https://in.bookmyshow.com/cinemas/bengaluru/{slug}/buytickets/",
+        f"https://in.bookmyshow.com/cinemas/bengaluru/{slug}/",
+    )
+
+    for url in urls:
+        try:
+            resp = requests.get(
+                url,
+                headers=HEADERS,
+                timeout=20,
+                allow_redirects=True,
+            )
+        except requests.RequestException:
+            continue
+
+        info = parse_cinema_url(resp.url)
+        if info:
+            return info
+
+        if resp.status_code != 200:
+            continue
+
+        found = extract_bms_cinema_url(resp.text)
+        info = parse_cinema_url(found) if found else None
+        if info:
+            return info
+
+    return None
 
 
 def search_engine_candidate(theatre: str):
-    """Resolve the theatre from indexed BMS pages.
-
-    The previous implementation only accepted /buytickets/ URLs. BMS search
-    results commonly expose the shorter /<VENUE_CODE> URL, so accepting both
-    forms is important for GitHub Actions where the BMS directory may return
-    HTTP 403.
-    """
+    """Resolve the theatre from indexed BMS pages."""
     query = f'site:in.bookmyshow.com/cinemas/bengaluru "{theatre}"'
     engines = (
         "https://www.google.com/search?q=" + quote(query),
@@ -175,7 +178,7 @@ def search_engine_candidate(theatre: str):
 
 
 def discover_bengaluru_theatre(region_slug: str, theatre_filter: str):
-    """Resolve any requested Bengaluru theatre using the main.py signature."""
+    """Resolve a requested Bengaluru theatre using the main.py signature."""
     target = (theatre_filter or "").strip()
     if not target:
         return None
