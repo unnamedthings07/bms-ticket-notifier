@@ -2,12 +2,14 @@
 
 Theatre mode is driven by one canonical BookMyShow cinema URL. The URL supplies
 venue code/date, movie event codes are discovered from the cinema page, and
-showtime data is checked through BMS's showtime API. All movie-level results are
-aggregated so theatre mode sends at most ONE email per workflow run.
+showtime data is checked through BMS's showtime API. Theatre mode sends at most
+ONE email per workflow run, grouped by movie name with timings only.
 """
 
 import os
 import re
+from datetime import datetime
+from html import escape
 from urllib.parse import unquote
 
 import requests
@@ -74,13 +76,112 @@ def _extract_event_codes(text: str) -> list[str]:
 def _fetch_event_codes_via_renderer(url: str) -> list[str]:
     renderer_url = "https://r.jina.ai/" + url
     try:
-        response = requests.get(renderer_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+        response = requests.get(
+            renderer_url,
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=30,
+        )
         if response.status_code == 200:
             return _extract_event_codes(response.text)
         print(f"  ⚠️ Renderer HTTP {response.status_code}: {renderer_url}")
     except requests.RequestException as exc:
         print(f"  ⚠️ Renderer request failed: {exc}")
     return []
+
+
+def _send_theatre_email(theatre_name: str, date_code: str, notifications: list[dict]):
+    """Send exactly one compact theatre email: movie name + timings only."""
+    api_key = checker.RESEND_API_KEY.strip()
+    to = checker.RESEND_TO_EMAIL.strip()
+    sender = checker.RESEND_FROM_EMAIL.strip() or "onboarding@resend.dev"
+    if not api_key or not to:
+        print("  ⚠️ Skipping email — RESEND_API_KEY or RESEND_TO_EMAIL not set.")
+        return
+
+    grouped: dict[str, set[str]] = {}
+    for item in notifications:
+        movie = (item.get("movie") or "Unknown Movie").strip() or "Unknown Movie"
+        times = grouped.setdefault(movie, set())
+        for show in item.get("shows", []):
+            time = (show.time or "").strip()
+            if time:
+                times.add(time)
+
+    # Keep stable alphabetical movie ordering and chronological times.
+    def time_sort_key(value: str):
+        match = re.match(r"^(\d{1,2}):(\d{2})\s*(AM|PM)?$", value.strip(), re.I)
+        if not match:
+            return (9999, value)
+        hour, minute, suffix = match.groups()
+        hour = int(hour)
+        minute = int(minute)
+        suffix = (suffix or "").upper()
+        if suffix == "AM":
+            hour = 0 if hour == 12 else hour
+        elif suffix == "PM":
+            hour = 12 if hour == 12 else hour + 12
+        return (hour * 60 + minute, value)
+
+    grouped = {
+        movie: sorted(times, key=time_sort_key)
+        for movie, times in sorted(grouped.items(), key=lambda pair: pair[0].lower())
+    }
+
+    date_display = date_code or "requested date"
+    now = datetime.now().strftime("%d %b %Y, %I:%M %p")
+    subject = f"BMS Alert: {theatre_name} — {date_display}"
+
+    plain_lines = [
+        f"BMS Alert: {theatre_name}",
+        f"Date: {date_display}",
+        "",
+        "Movies / Timings",
+        "",
+    ]
+    html_rows = []
+    for movie, times in grouped.items():
+        joined = ", ".join(times) if times else "No timings found"
+        plain_lines.append(f"{movie} — {joined}")
+        html_rows.append(
+            f'<tr><td style="padding:10px 8px;border-bottom:1px solid #ddd;">'
+            f'<b>{escape(movie)}</b></td>'
+            f'<td style="padding:10px 8px;border-bottom:1px solid #ddd;">'
+            f'{escape(joined)}</td></tr>'
+        )
+
+    html = (
+        '<!doctype html><html><body style="font-family:Arial,sans-serif;color:#333;padding:24px;">'
+        f'<h2 style="color:#111;margin-bottom:6px;">BMS Alert: {escape(theatre_name)}</h2>'
+        f'<p style="color:#666;margin-top:0;">{escape(date_display)} · {escape(now)}</p>'
+        '<table style="width:100%;border-collapse:collapse;">'
+        '<tr><th style="text-align:left;padding:8px;">Movie</th>'
+        '<th style="text-align:left;padding:8px;">Timings</th></tr>'
+        + "".join(html_rows)
+        + '</table></body></html>'
+    )
+
+    try:
+        response = requests.post(
+            "https://api.resend.com/emails",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "from": sender,
+                "to": [to],
+                "subject": subject,
+                "text": "\n".join(plain_lines),
+                "html": html,
+            },
+            timeout=15,
+        )
+        if response.status_code not in (200, 201):
+            print(f"  ❌ Resend {response.status_code}: {response.text}")
+            return
+        print(f"  ✅ One theatre email sent to {to}")
+    except requests.RequestException as exc:
+        print(f"  ❌ Email failed: {exc}")
 
 
 # ---------------- Theatre mode ------------------------------------------------
@@ -102,7 +203,7 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
         if not checker.CONFIG["dates"] and cinema["date_code"]:
             checker.CONFIG["dates"] = cinema["date_code"]
 
-        # In theatre mode the movie name is irrelevant; URL venue code is exact.
+        # Movie selection is deliberately ignored in theatre mode.
         checker.CONFIG["theatre"] = cinema["name"]
         checker.CONFIG["movie"] = "ANY"
 
@@ -126,6 +227,7 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
 
         checker.discover_event_codes_from_theatre_page = discover_events_from_url
 
+        # Filter by exact BMS venue code from the supplied URL.
         original_filter = checker.filter_shows
 
         def filter_shows_by_url(shows, theatre_filter, time_periods, date_codes):
@@ -144,14 +246,9 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
 
         checker.filter_shows = filter_shows_by_url
 
-        # ---------------------------------------------------------------
-        # Theatre mode is ONE search / ONE notification.
-        # run_movie() normally sends immediately per movie. Replace that
-        # sender with a collector, then send one aggregated message after
-        # the complete theatre scan finishes.
-        # ---------------------------------------------------------------
+        # Theatre mode is one search / one notification.
         original_send_email = checker.send_email
-        theatre_notifications = []
+        theatre_notifications: list[dict] = []
 
         def collect_email(subject, changes, shows, movie_info):
             theatre_notifications.append(
@@ -176,48 +273,30 @@ if checker.CONFIG["mode"] in ("theatre", "cinema"):
 
             checker.save_state({"version": 3, "movies": new_movies})
 
-            # Flatten all movie-level changes into ONE theatre notification.
-            all_changes = []
-            all_shows = []
-            seen_change = set()
-            seen_show = set()
-            for item in theatre_notifications:
-                for change in item["changes"]:
-                    if change not in seen_change:
-                        seen_change.add(change)
-                        all_changes.append(change)
-                for show in item["shows"]:
-                    key = (
-                        show.venue_code,
-                        show.session_id,
-                        show.date_code,
-                        show.time_code,
-                        tuple((c.name, c.price, c.status) for c in show.categories),
-                    )
-                    if key not in seen_show:
-                        seen_show.add(key)
-                        all_shows.append(show)
-
-            if all_changes:
-                theatre_name = cinema["name"]
+            if theatre_notifications:
                 date_text = ", ".join(checker.CONFIG["dates"].split(",")) if checker.CONFIG["dates"] else "requested date"
-                subject = f"BMS Alert: {theatre_name} — {len(all_changes)} change(s)"
-                movie_info = {
-                    "name": f"{theatre_name} — {date_text}",
-                    "language": "",
-                }
-                print(f"\n  📧 Sending ONE aggregated theatre email ({len(all_changes)} change(s))")
-                original_send_email(subject, all_changes, all_shows, movie_info)
+                print(
+                    f"\n  📧 Sending ONE theatre email "
+                    f"for {len(theatre_notifications)} movie result(s)"
+                )
+                _send_theatre_email(
+                    cinema["name"],
+                    date_text,
+                    theatre_notifications,
+                )
             else:
                 print("\n  ✅ No theatre changes — no email sent.")
 
-            print(f"\n✅ Done. Checked {len(new_movies)} movie(s) within one theatre search.")
+            print(
+                f"\n✅ Done. Checked {len(new_movies)} movie(s) "
+                "within one theatre search."
+            )
 
         checker.main = theatre_main_once
 
 
-# Optional format filter for theatre mode. It applies to the already-selected
-# theatre shows and still results in only one aggregated email.
+# Optional format filter for theatre mode. It applies to the selected theatre
+# shows and still results in only one aggregated email.
 requested_formats = normalize_formats(os.getenv("BMS_FORMAT", "").strip())
 if requested_formats:
     previous_filter = checker.filter_shows
