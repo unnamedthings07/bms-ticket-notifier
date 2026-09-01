@@ -4,13 +4,13 @@
     "ET00378770": {
       "shows": {},
       "dates": {
-        "20260831": "BOOKABLE",
-        "20260901": "AVAILABLE",
+        "20260901": "BOOKABLE",
         "20260902": "AVAILABLE",
         "20260903": "AVAILABLE",
         "20260904": "NOT_OPEN",
         "20260905": "NOT_OPEN",
-        "20260906": "NOT_OPEN"
+        "20260906": "NOT_OPEN",
+        "20260907": "NOT_OPEN"
       }
     }
   }
