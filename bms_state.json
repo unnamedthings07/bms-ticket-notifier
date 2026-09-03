@@ -1,30 +1,153 @@
 {
   "version": 3,
   "movies": {
-    "ET00487933": {
+    "ET00514473": {
       "shows": {
-        "PSPR|56824|20260903|LUXE PRIME": {
+        "PSPR|56851|20260903|RECLINER ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:55 PM",
+          "time": "03:05 PM",
+          "date": "20260903",
+          "cat": "RECLINER ROWS",
+          "price": "430.00",
+          "status": "3"
+        },
+        "PSPR|56851|20260903|PRIME ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "03:05 PM",
+          "date": "20260903",
+          "cat": "PRIME ROWS",
+          "price": "280.00",
+          "status": "3"
+        },
+        "PSPR|56851|20260903|CLASSIC ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "03:05 PM",
+          "date": "20260903",
+          "cat": "CLASSIC ROWS",
+          "price": "230.00",
+          "status": "3"
+        },
+        "PSPR|56851|20260903|CLASSIC PLUS ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "03:05 PM",
+          "date": "20260903",
+          "cat": "CLASSIC PLUS ROWS",
+          "price": "220.00",
+          "status": "3"
+        },
+        "PSPR|56852|20260903|RECLINER ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "06:50 PM",
+          "date": "20260903",
+          "cat": "RECLINER ROWS",
+          "price": "530.00",
+          "status": "3"
+        },
+        "PSPR|56852|20260903|PRIME ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "06:50 PM",
+          "date": "20260903",
+          "cat": "PRIME ROWS",
+          "price": "260.00",
+          "status": "3"
+        },
+        "PSPR|56852|20260903|CLASSIC PLUS ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "06:50 PM",
+          "date": "20260903",
+          "cat": "CLASSIC PLUS ROWS",
+          "price": "230.00",
+          "status": "3"
+        },
+        "PSPR|56852|20260903|CLASSIC ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "06:50 PM",
+          "date": "20260903",
+          "cat": "CLASSIC ROWS",
+          "price": "210.00",
+          "status": "3"
+        },
+        "PSPR|56849|20260903|RECLINER ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "10:20 PM",
+          "date": "20260903",
+          "cat": "RECLINER ROWS",
+          "price": "530.00",
+          "status": "3"
+        },
+        "PSPR|56849|20260903|PRIME ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "10:20 PM",
+          "date": "20260903",
+          "cat": "PRIME ROWS",
+          "price": "280.00",
+          "status": "3"
+        },
+        "PSPR|56849|20260903|CLASSIC PLUS ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "10:20 PM",
+          "date": "20260903",
+          "cat": "CLASSIC PLUS ROWS",
+          "price": "250.00",
+          "status": "3"
+        },
+        "PSPR|56849|20260903|CLASSIC ROWS": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "10:20 PM",
+          "date": "20260903",
+          "cat": "CLASSIC ROWS",
+          "price": "230.00",
+          "status": "3"
+        }
+      },
+      "dates": {
+        "20260903": "BOOKABLE",
+        "20260904": "AVAILABLE",
+        "20260905": "AVAILABLE",
+        "20260906": "AVAILABLE",
+        "20260907": "AVAILABLE",
+        "20260908": "AVAILABLE",
+        "20260909": "AVAILABLE",
+        "20260910": "AVAILABLE"
+      }
+    },
+    "ET00452034": {
+      "shows": {
+        "PSPR|56807|20260903|LUXE PRIME": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "03:15 PM",
           "date": "20260903",
           "cat": "LUXE PRIME",
-          "price": "590.00",
-          "status": "2"
+          "price": "540.00",
+          "status": "3"
         },
-        "PSPR|56824|20260903|LUXE": {
+        "PSPR|56807|20260903|LUXE": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:55 PM",
+          "time": "03:15 PM",
           "date": "20260903",
           "cat": "LUXE",
           "price": "490.00",
           "status": "3"
-        },
+        }
+      },
+      "dates": {
+        "20260903": "BOOKABLE",
+        "20260904": "AVAILABLE",
+        "20260905": "AVAILABLE",
+        "20260906": "AVAILABLE",
+        "20260907": "NOT_OPEN",
+        "20260908": "NOT_OPEN",
+        "20260909": "NOT_OPEN"
+      }
+    },
+    "ET00487933": {
+      "shows": {
         "PSPR|56827|20260903|RECLINER ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
           "time": "04:10 PM",
           "date": "20260903",
           "cat": "RECLINER ROWS",
-          "price": "380.00",
+          "price": "410.00",
           "status": "3"
         },
         "PSPR|56827|20260903|PRIME ROWS": {
@@ -57,14 +180,14 @@
           "date": "20260903",
           "cat": "RECLINER ROWS",
           "price": "440.00",
-          "status": "2"
+          "status": "1"
         },
         "PSPR|56826|20260903|PRIME ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
           "time": "07:20 PM",
           "date": "20260903",
           "cat": "PRIME ROWS",
-          "price": "220.00",
+          "price": "250.00",
           "status": "3"
         },
         "PSPR|56826|20260903|CLASSIC PLUS ROWS": {
@@ -129,157 +252,13 @@
     },
     "ET00378770": {
       "shows": {
-        "PSPR|56836|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:30 AM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "560.00",
-          "status": "1"
-        },
-        "PSPR|56836|20260903|EXTRA LEGROOM ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:30 AM",
-          "date": "20260903",
-          "cat": "EXTRA LEGROOM ROWS",
-          "price": "380.00",
-          "status": "3"
-        },
-        "PSPR|56836|20260903|PICTURE PERFECT": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:30 AM",
-          "date": "20260903",
-          "cat": "PICTURE PERFECT",
-          "price": "380.00",
-          "status": "3"
-        },
-        "PSPR|56836|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:30 AM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "280.00",
-          "status": "3"
-        },
-        "PSPR|56836|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:30 AM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "250.00",
-          "status": "3"
-        },
-        "PSPR|56836|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:30 AM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "230.00",
-          "status": "3"
-        },
-        "PSPR|56840|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "11:05 AM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "490.00",
-          "status": "2"
-        },
-        "PSPR|56840|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "11:05 AM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "280.00",
-          "status": "3"
-        },
-        "PSPR|56840|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "11:05 AM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "220.00",
-          "status": "3"
-        },
-        "PSPR|56840|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "11:05 AM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "200.00",
-          "status": "3"
-        },
-        "PSPR|56833|20260903|LUXE PRIME": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "01:40 PM",
-          "date": "20260903",
-          "cat": "LUXE PRIME",
-          "price": "590.00",
-          "status": "2"
-        },
-        "PSPR|56833|20260903|LUXE": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "01:40 PM",
-          "date": "20260903",
-          "cat": "LUXE",
-          "price": "490.00",
-          "status": "3"
-        },
-        "PSPR|56837|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "02:30 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "560.00",
-          "status": "3"
-        },
-        "PSPR|56837|20260903|PICTURE PERFECT": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "02:30 PM",
-          "date": "20260903",
-          "cat": "PICTURE PERFECT",
-          "price": "380.00",
-          "status": "3"
-        },
-        "PSPR|56837|20260903|EXTRA LEGROOM ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "02:30 PM",
-          "date": "20260903",
-          "cat": "EXTRA LEGROOM ROWS",
-          "price": "380.00",
-          "status": "3"
-        },
-        "PSPR|56837|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "02:30 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "310.00",
-          "status": "3"
-        },
-        "PSPR|56837|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "02:30 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "280.00",
-          "status": "3"
-        },
-        "PSPR|56837|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "02:30 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "260.00",
-          "status": "3"
-        },
         "PSPR|56834|20260903|LUXE PRIME": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
           "time": "05:40 PM",
           "date": "20260903",
           "cat": "LUXE PRIME",
-          "price": "540.00",
-          "status": "3"
+          "price": "590.00",
+          "status": "2"
         },
         "PSPR|56834|20260903|LUXE": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
@@ -302,7 +281,7 @@
           "time": "06:00 PM",
           "date": "20260903",
           "cat": "PRIME ROWS",
-          "price": "280.00",
+          "price": "310.00",
           "status": "3"
         },
         "PSPR|56841|20260903|CLASSIC PLUS ROWS": {
@@ -329,20 +308,20 @@
           "price": "720.00",
           "status": "2"
         },
+        "PSPR|56838|20260903|PICTURE PERFECT": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "06:30 PM",
+          "date": "20260903",
+          "cat": "PICTURE PERFECT",
+          "price": "410.00",
+          "status": "2"
+        },
         "PSPR|56838|20260903|EXTRA LEGROOM ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
           "time": "06:30 PM",
           "date": "20260903",
           "cat": "EXTRA LEGROOM ROWS",
           "price": "410.00",
-          "status": "3"
-        },
-        "PSPR|56838|20260903|PICTURE PERFECT": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "06:30 PM",
-          "date": "20260903",
-          "cat": "PICTURE PERFECT",
-          "price": "380.00",
           "status": "3"
         },
         "PSPR|56838|20260903|PRIME ROWS": {
@@ -477,6 +456,35 @@
         "20260910": "AVAILABLE"
       }
     },
+    "ET00513507": {
+      "shows": {
+        "PSPR|56845|20260903|PRIME": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "06:15 PM",
+          "date": "20260903",
+          "cat": "PRIME",
+          "price": "520.00",
+          "status": "3"
+        },
+        "PSPR|56845|20260903|CLASSIC": {
+          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
+          "time": "06:15 PM",
+          "date": "20260903",
+          "cat": "CLASSIC",
+          "price": "450.00",
+          "status": "3"
+        }
+      },
+      "dates": {
+        "20260903": "BOOKABLE",
+        "20260904": "AVAILABLE",
+        "20260905": "AVAILABLE",
+        "20260906": "AVAILABLE",
+        "20260907": "NOT_OPEN",
+        "20260908": "NOT_OPEN",
+        "20260909": "NOT_OPEN"
+      }
+    },
     "ET00514305": {
       "shows": {
         "PSPR|56847|20260903|RECLINER": {
@@ -514,38 +522,22 @@
         "20260909": "NOT_OPEN"
       }
     },
-    "ET00493836": {
+    "ET00513506": {
       "shows": {
-        "PSPR|56818|20260903|RECLINER ROWS": {
+        "PSPR|56829|20260903|PRIME": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 AM",
+          "time": "10:15 PM",
           "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "300.00",
+          "cat": "PRIME",
+          "price": "520.00",
           "status": "3"
         },
-        "PSPR|56818|20260903|PRIME ROWS": {
+        "PSPR|56829|20260903|CLASSIC": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 AM",
+          "time": "10:15 PM",
           "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "180.00",
-          "status": "3"
-        },
-        "PSPR|56818|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 AM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "150.00",
-          "status": "3"
-        },
-        "PSPR|56818|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 AM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "99.00",
+          "cat": "CLASSIC",
+          "price": "500.00",
           "status": "3"
         }
       },
@@ -559,506 +551,67 @@
         "20260909": "NOT_OPEN"
       }
     },
-    "ET00473215": {
+    "ET00489815": {
       "shows": {
-        "PSPR|56798|20260903|LUXE PRIME": {
+        "PSPR|56816|20260903|RECLINER ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "11:45 AM",
+          "time": "07:10 PM",
           "date": "20260903",
-          "cat": "LUXE PRIME",
-          "price": "700.00",
+          "cat": "RECLINER ROWS",
+          "price": "440.00",
           "status": "2"
         },
-        "PSPR|56798|20260903|LUXE": {
+        "PSPR|56816|20260903|PRIME ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "11:45 AM",
-          "date": "20260903",
-          "cat": "LUXE",
-          "price": "650.00",
-          "status": "3"
-        },
-        "PSPR|56806|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:40 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "510.00",
-          "status": "3"
-        },
-        "PSPR|56806|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:40 PM",
+          "time": "07:10 PM",
           "date": "20260903",
           "cat": "PRIME ROWS",
-          "price": "270.00",
-          "status": "3"
-        },
-        "PSPR|56806|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:40 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "240.00",
-          "status": "3"
-        },
-        "PSPR|56806|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:40 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
           "price": "220.00",
           "status": "3"
         },
-        "PSPR|56805|20260903|RECLINER ROWS": {
+        "PSPR|56816|20260903|CLASSIC PLUS ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:35 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "530.00",
-          "status": "3"
-        },
-        "PSPR|56805|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:35 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "270.00",
-          "status": "3"
-        },
-        "PSPR|56805|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:35 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "240.00",
-          "status": "3"
-        },
-        "PSPR|56805|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:35 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "220.00",
-          "status": "3"
-        },
-        "PSPR|56801|20260903|LUXE PRIME": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:55 PM",
-          "date": "20260903",
-          "cat": "LUXE PRIME",
-          "price": "750.00",
-          "status": "3"
-        },
-        "PSPR|56801|20260903|LUXE": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:55 PM",
-          "date": "20260903",
-          "cat": "LUXE",
-          "price": "700.00",
-          "status": "3"
-        },
-        "PSPR|56803|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "06:45 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "530.00",
-          "status": "3"
-        },
-        "PSPR|56803|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "06:45 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "280.00",
-          "status": "3"
-        },
-        "PSPR|56803|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "06:45 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "250.00",
-          "status": "3"
-        },
-        "PSPR|56803|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "06:45 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "230.00",
-          "status": "3"
-        },
-        "PSPR|56804|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:15 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "580.00",
-          "status": "3"
-        },
-        "PSPR|56804|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:15 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "300.00",
-          "status": "3"
-        },
-        "PSPR|56804|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:15 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "270.00",
-          "status": "3"
-        },
-        "PSPR|56804|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:15 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "250.00",
-          "status": "3"
-        }
-      },
-      "dates": {
-        "20260903": "BOOKABLE",
-        "20260904": "AVAILABLE",
-        "20260905": "AVAILABLE",
-        "20260906": "AVAILABLE",
-        "20260907": "NOT_OPEN",
-        "20260908": "NOT_OPEN",
-        "20260909": "NOT_OPEN"
-      }
-    },
-    "ET00502829": {
-      "shows": {
-        "PSPR|56821|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:20 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "430.00",
-          "status": "3"
-        },
-        "PSPR|56821|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:20 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "250.00",
-          "status": "3"
-        },
-        "PSPR|56821|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:20 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "220.00",
-          "status": "3"
-        },
-        "PSPR|56821|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:20 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "200.00",
-          "status": "3"
-        },
-        "PSPR|56819|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "04:05 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "430.00",
-          "status": "3"
-        },
-        "PSPR|56819|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "04:05 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "250.00",
-          "status": "3"
-        },
-        "PSPR|56819|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "04:05 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "220.00",
-          "status": "3"
-        },
-        "PSPR|56819|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "04:05 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "200.00",
-          "status": "3"
-        },
-        "PSPR|56822|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "07:05 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "440.00",
-          "status": "3"
-        },
-        "PSPR|56822|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "07:05 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "260.00",
-          "status": "3"
-        },
-        "PSPR|56822|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "07:05 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "210.00",
-          "status": "3"
-        },
-        "PSPR|56822|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "07:05 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "190.00",
-          "status": "3"
-        },
-        "PSPR|56823|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "430.00",
-          "status": "3"
-        },
-        "PSPR|56823|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "270.00",
-          "status": "3"
-        },
-        "PSPR|56823|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "240.00",
-          "status": "3"
-        },
-        "PSPR|56823|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "10:20 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "220.00",
-          "status": "3"
-        }
-      },
-      "dates": {
-        "20260903": "BOOKABLE",
-        "20260904": "AVAILABLE",
-        "20260905": "AVAILABLE",
-        "20260906": "AVAILABLE",
-        "20260907": "NOT_OPEN",
-        "20260908": "NOT_OPEN",
-        "20260909": "NOT_OPEN"
-      }
-    },
-    "ET00008132": {
-      "shows": {
-        "PSPR|56848|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:35 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "299.00",
-          "status": "3"
-        },
-        "PSPR|56848|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:35 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "149.00",
-          "status": "3"
-        },
-        "PSPR|56848|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:35 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "149.00",
-          "status": "3"
-        },
-        "PSPR|56848|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "12:35 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "149.00",
-          "status": "3"
-        }
-      },
-      "dates": {
-        "20260903": "BOOKABLE",
-        "20260904": "NOT_OPEN",
-        "20260905": "NOT_OPEN",
-        "20260906": "NOT_OPEN",
-        "20260907": "NOT_OPEN",
-        "20260908": "NOT_OPEN",
-        "20260909": "NOT_OPEN"
-      }
-    },
-    "ET00507738": {
-      "shows": {
-        "PSPR|56811|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "01:00 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "440.00",
-          "status": "1"
-        },
-        "PSPR|56811|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "01:00 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "250.00",
-          "status": "3"
-        },
-        "PSPR|56811|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "01:00 PM",
+          "time": "07:10 PM",
           "date": "20260903",
           "cat": "CLASSIC PLUS ROWS",
           "price": "190.00",
           "status": "3"
         },
-        "PSPR|56811|20260903|CLASSIC ROWS": {
+        "PSPR|56816|20260903|CLASSIC ROWS": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "01:00 PM",
+          "time": "07:10 PM",
           "date": "20260903",
           "cat": "CLASSIC ROWS",
           "price": "170.00",
           "status": "3"
-        },
-        "PSPR|56812|20260903|RECLINER ROWS": {
+        }
+      },
+      "dates": {
+        "20260903": "BOOKABLE",
+        "20260904": "AVAILABLE",
+        "20260905": "AVAILABLE",
+        "20260906": "AVAILABLE",
+        "20260907": "NOT_OPEN",
+        "20260908": "NOT_OPEN",
+        "20260909": "NOT_OPEN"
+      }
+    },
+    "ET00509196": {
+      "shows": {
+        "PSPR|56817|20260903|LUXE PRIME": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:40 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "440.00",
-          "status": "2"
-        },
-        "PSPR|56812|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:40 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "250.00",
-          "status": "2"
-        },
-        "PSPR|56812|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:40 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "190.00",
-          "status": "3"
-        },
-        "PSPR|56812|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:40 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "170.00",
-          "status": "3"
-        },
-        "PSPR|56810|20260903|LUXE PRIME": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "07:25 PM",
+          "time": "10:30 PM",
           "date": "20260903",
           "cat": "LUXE PRIME",
-          "price": "690.00",
-          "status": "1"
-        },
-        "PSPR|56810|20260903|LUXE": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "07:25 PM",
-          "date": "20260903",
-          "cat": "LUXE",
           "price": "640.00",
-          "status": "2"
-        },
-        "PSPR|56813|20260903|RECLINER ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "09:45 PM",
-          "date": "20260903",
-          "cat": "RECLINER ROWS",
-          "price": "490.00",
-          "status": "1"
-        },
-        "PSPR|56813|20260903|PRIME ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "09:45 PM",
-          "date": "20260903",
-          "cat": "PRIME ROWS",
-          "price": "300.00",
-          "status": "1"
-        },
-        "PSPR|56813|20260903|CLASSIC PLUS ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "09:45 PM",
-          "date": "20260903",
-          "cat": "CLASSIC PLUS ROWS",
-          "price": "270.00",
-          "status": "2"
-        },
-        "PSPR|56813|20260903|CLASSIC ROWS": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "09:45 PM",
-          "date": "20260903",
-          "cat": "CLASSIC ROWS",
-          "price": "190.00",
           "status": "3"
-        }
-      },
-      "dates": {
-        "20260903": "BOOKABLE",
-        "20260904": "AVAILABLE",
-        "20260905": "AVAILABLE",
-        "20260906": "AVAILABLE",
-        "20260907": "NOT_OPEN",
-        "20260908": "NOT_OPEN",
-        "20260909": "NOT_OPEN"
-      }
-    },
-    "ET00452034": {
-      "shows": {
-        "PSPR|56807|20260903|LUXE PRIME": {
-          "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:15 PM",
-          "date": "20260903",
-          "cat": "LUXE PRIME",
-          "price": "540.00",
-          "status": "1"
         },
-        "PSPR|56807|20260903|LUXE": {
+        "PSPR|56817|20260903|LUXE": {
           "venue": "PVR: Superplex Forum Mall, Kanakapura Road",
-          "time": "03:15 PM",
+          "time": "10:30 PM",
           "date": "20260903",
           "cat": "LUXE",
-          "price": "440.00",
+          "price": "590.00",
           "status": "3"
         }
       },
@@ -1067,9 +620,10 @@
         "20260904": "AVAILABLE",
         "20260905": "AVAILABLE",
         "20260906": "AVAILABLE",
-        "20260907": "NOT_OPEN",
-        "20260908": "NOT_OPEN",
-        "20260909": "NOT_OPEN"
+        "20260907": "AVAILABLE",
+        "20260908": "AVAILABLE",
+        "20260909": "AVAILABLE",
+        "20260910": "AVAILABLE"
       }
     },
     "ET00379308": {
@@ -1106,18 +660,6 @@
         "20260908": "AVAILABLE",
         "20260909": "AVAILABLE",
         "20260910": "AVAILABLE"
-      }
-    },
-    "ET00502600": {
-      "shows": {},
-      "dates": {
-        "20260903": "BOOKABLE",
-        "20260904": "AVAILABLE",
-        "20260905": "AVAILABLE",
-        "20260906": "AVAILABLE",
-        "20260907": "NOT_OPEN",
-        "20260908": "NOT_OPEN",
-        "20260909": "NOT_OPEN"
       }
     }
   }
