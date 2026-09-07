@@ -13,31 +13,7 @@
         "20260913": "NOT_OPEN"
       }
     },
-    "ET00502630": {
-      "shows": {},
-      "dates": {
-        "20260907": "BOOKABLE",
-        "20260908": "AVAILABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN"
-      }
-    },
-    "ET00515244": {
-      "shows": {},
-      "dates": {
-        "20260907": "BOOKABLE",
-        "20260908": "AVAILABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN"
-      }
-    },
-    "ET00378770": {
+    "ET00514473": {
       "shows": {},
       "dates": {
         "20260907": "BOOKABLE",
@@ -49,25 +25,13 @@
         "20260913": "NOT_OPEN"
       }
     },
-    "ET00514305": {
+    "ET00513702": {
       "shows": {},
       "dates": {
         "20260907": "BOOKABLE",
         "20260908": "AVAILABLE",
         "20260909": "AVAILABLE",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN"
-      }
-    },
-    "ET00513507": {
-      "shows": {},
-      "dates": {
-        "20260907": "BOOKABLE",
-        "20260908": "AVAILABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "NOT_OPEN",
+        "20260910": "AVAILABLE",
         "20260911": "NOT_OPEN",
         "20260912": "NOT_OPEN",
         "20260913": "NOT_OPEN"
@@ -85,19 +49,7 @@
         "20260913": "NOT_OPEN"
       }
     },
-    "ET00505235": {
-      "shows": {},
-      "dates": {
-        "20260907": "BOOKABLE",
-        "20260908": "AVAILABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN"
-      }
-    },
-    "ET00487933": {
+    "ET00509196": {
       "shows": {},
       "dates": {
         "20260907": "BOOKABLE",
@@ -121,6 +73,18 @@
         "20260913": "NOT_OPEN"
       }
     },
+    "ET00511400": {
+      "shows": {},
+      "dates": {
+        "20260907": "BOOKABLE",
+        "20260908": "AVAILABLE",
+        "20260909": "AVAILABLE",
+        "20260910": "NOT_OPEN",
+        "20260911": "NOT_OPEN",
+        "20260912": "NOT_OPEN",
+        "20260913": "NOT_OPEN"
+      }
+    },
     "ET00511702": {
       "shows": {},
       "dates": {
@@ -133,7 +97,7 @@
         "20260913": "NOT_OPEN"
       }
     },
-    "ET00505322": {
+    "ET00500543": {
       "shows": {},
       "dates": {
         "20260907": "BOOKABLE",
@@ -151,30 +115,6 @@
         "20260907": "NOT_OPEN",
         "20260908": "NOT_OPEN",
         "20260909": "NOT_OPEN",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN"
-      }
-    },
-    "ET00515243": {
-      "shows": {},
-      "dates": {
-        "20260907": "NOT_OPEN",
-        "20260908": "NOT_OPEN",
-        "20260909": "NOT_OPEN",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN"
-      }
-    },
-    "ET00502600": {
-      "shows": {},
-      "dates": {
-        "20260907": "BOOKABLE",
-        "20260908": "AVAILABLE",
-        "20260909": "AVAILABLE",
         "20260910": "NOT_OPEN",
         "20260911": "NOT_OPEN",
         "20260912": "NOT_OPEN",
