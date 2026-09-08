@@ -1,55 +1,7 @@
 {
   "version": 3,
   "movies": {
-    "ET00417686": {
-      "shows": {},
-      "dates": {
-        "20260908": "BOOKABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "AVAILABLE",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN",
-        "20260914": "NOT_OPEN"
-      }
-    },
-    "ET00502829": {
-      "shows": {},
-      "dates": {
-        "20260908": "BOOKABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "AVAILABLE",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN",
-        "20260914": "NOT_OPEN"
-      }
-    },
     "ET00515244": {
-      "shows": {},
-      "dates": {
-        "20260908": "BOOKABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN",
-        "20260914": "NOT_OPEN"
-      }
-    },
-    "ET00378770": {
-      "shows": {},
-      "dates": {
-        "20260908": "BOOKABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "AVAILABLE",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN",
-        "20260914": "NOT_OPEN"
-      }
-    },
-    "ET00514305": {
       "shows": {},
       "dates": {
         "20260908": "BOOKABLE",
@@ -73,19 +25,7 @@
         "20260914": "NOT_OPEN"
       }
     },
-    "ET00513507": {
-      "shows": {},
-      "dates": {
-        "20260908": "BOOKABLE",
-        "20260909": "AVAILABLE",
-        "20260910": "NOT_OPEN",
-        "20260911": "NOT_OPEN",
-        "20260912": "NOT_OPEN",
-        "20260913": "NOT_OPEN",
-        "20260914": "NOT_OPEN"
-      }
-    },
-    "ET00487933": {
+    "ET00514473": {
       "shows": {},
       "dates": {
         "20260908": "BOOKABLE",
@@ -97,7 +37,7 @@
         "20260914": "NOT_OPEN"
       }
     },
-    "ET00440190": {
+    "ET00442702": {
       "shows": {},
       "dates": {
         "20260910": "BOOKABLE",
@@ -105,8 +45,8 @@
         "20260912": "AVAILABLE",
         "20260913": "AVAILABLE",
         "20260914": "AVAILABLE",
-        "20260917": "AVAILABLE",
-        "20260918": "NOT_OPEN"
+        "20260915": "NOT_OPEN",
+        "20260916": "NOT_OPEN"
       }
     },
     "ET00513702": {
@@ -121,7 +61,7 @@
         "20260914": "NOT_OPEN"
       }
     },
-    "ET00509671": {
+    "ET00502600": {
       "shows": {},
       "dates": {
         "20260908": "BOOKABLE",
