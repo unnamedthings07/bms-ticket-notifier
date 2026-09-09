@@ -1,7 +1,7 @@
 {
   "version": 3,
   "movies": {
-    "ET00511702": {
+    "ET00511400": {
       "shows": {},
       "dates": {
         "20260909": "BOOKABLE",
@@ -10,6 +10,68 @@
         "20260912": "NOT_OPEN",
         "20260913": "NOT_OPEN",
         "20260914": "NOT_OPEN",
+        "20260915": "NOT_OPEN"
+      }
+    },
+    "ET00513507": {
+      "shows": {},
+      "dates": {
+        "20260909": "BOOKABLE",
+        "20260910": "AVAILABLE",
+        "20260911": "NOT_OPEN",
+        "20260912": "NOT_OPEN",
+        "20260913": "NOT_OPEN",
+        "20260914": "NOT_OPEN",
+        "20260915": "NOT_OPEN"
+      }
+    },
+    "ET00511528": {
+      "shows": {},
+      "dates": {
+        "20260909": "BOOKABLE",
+        "20260910": "AVAILABLE",
+        "20260911": "AVAILABLE",
+        "20260912": "AVAILABLE",
+        "20260913": "AVAILABLE",
+        "20260914": "AVAILABLE",
+        "20260915": "AVAILABLE",
+        "20260916": "AVAILABLE",
+        "20260917": "AVAILABLE"
+      }
+    },
+    "ET00513702": {
+      "shows": {},
+      "dates": {
+        "20260909": "BOOKABLE",
+        "20260910": "AVAILABLE",
+        "20260911": "AVAILABLE",
+        "20260912": "AVAILABLE",
+        "20260913": "AVAILABLE",
+        "20260914": "AVAILABLE",
+        "20260915": "NOT_OPEN"
+      }
+    },
+    "ET00514473": {
+      "shows": {},
+      "dates": {
+        "20260909": "BOOKABLE",
+        "20260910": "AVAILABLE",
+        "20260911": "AVAILABLE",
+        "20260912": "AVAILABLE",
+        "20260913": "AVAILABLE",
+        "20260914": "AVAILABLE",
+        "20260915": "NOT_OPEN"
+      }
+    },
+    "ET00511702": {
+      "shows": {},
+      "dates": {
+        "20260909": "BOOKABLE",
+        "20260910": "AVAILABLE",
+        "20260911": "AVAILABLE",
+        "20260912": "AVAILABLE",
+        "20260913": "AVAILABLE",
+        "20260914": "AVAILABLE",
         "20260915": "NOT_OPEN"
       }
     }
